@@ -414,6 +414,11 @@ export default function BookingForm() {
                   <label className="block text-sm font-medium text-gray-700 mb-3">
                     <Clock className="inline w-5 h-5 mr-2" />
                     Horários Disponíveis
+                    {formData.service_ids.length > 0 && (
+                      <span className="ml-2 text-sm text-yellow-600 font-normal">
+                        (Duração total: {getTotalDuration()} min)
+                      </span>
+                    )}
                   </label>
                   {formData.date ? (
                     <>
@@ -432,9 +437,13 @@ export default function BookingForm() {
                                   : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                               }`}
                             >
-                              <div>{slot.time_slot.slice(0, 5)}</div>
-                              <div className="text-xs text-gray-500">
-                                {slot.duration_minutes}min
+                              <div className="font-medium">{slot.time_slot.slice(0, 5)}</div>
+                              <div className={`text-xs ${formData.time === slot.time_slot ? 'text-yellow-100' : 'text-gray-500'}`}>
+                                {(() => {
+                                  const startTime = new Date(`2000-01-01 ${slot.time_slot}`)
+                                  const endTime = new Date(startTime.getTime() + slot.duration_minutes * 60000)
+                                  return `até ${endTime.toTimeString().slice(0, 5)}`
+                                })()}
                               </div>
                             </button>
                           ))}
