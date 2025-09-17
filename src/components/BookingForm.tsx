@@ -157,7 +157,15 @@ export default function BookingForm() {
   const getBarberPhoto = (barberName: string) => {
     const photos: { [key: string]: string } = {
       'admin': 'https://i.ibb.co/YFwtW2vq/image.png',
-      'roberto': 'https://i.ibb.co/V0f50tgs/image.png'
+      'carlos barber': 'https://i.imgur.com/Z7fiUZT.jpeg',
+      'davi': 'https://i.imgur.com/JhANjJC.jpeg',
+      'deivid dos santos': 'https://i.imgur.com/MVbDram.jpeg',
+      'henrique': 'https://i.imgur.com/5bRaxI1.jpeg',
+      'leandro': 'https://i.imgur.com/TSAgiyG.jpeg',
+      'jose elias neto': 'https://i.imgur.com/QxipiSW.jpeg',
+      'arthur fernandes costa': 'https://www.sistemasrbigode.com.br/assets/logo-sr-bigode-CF0MuJRF.png',
+      'lorran': 'https://www.sistemasrbigode.com.br/assets/logo-sr-bigode-CF0MuJRF.png',
+      'luiz henrique': 'https://www.sistemasrbigode.com.br/assets/logo-sr-bigode-CF0MuJRF.png'
     }
     
     // Case-insensitive lookup
